@@ -37,7 +37,7 @@ Then, to start the app locally:
 npm start
 ```
 
-With this option, a `database.sqlite` is created at projet root.
+With this option, a `database.sqlite` is created at project root.
 
 ### Option 2 (PostgreSQL)
 
