@@ -18,13 +18,17 @@ npm i
 
 After installation of dependencies, proceed with one of two options given below:
 
-### Option 1
+### Option 1 (Sqlite)
 
-To quickly try the application, it may be run with a sqlite3 instance in memory. \
+To quickly try the application, it may be run with a sqlite3 instance. \
 To do this, make the following changes in [config/database.js](config/database.js)
 
 ```javascript
-const sequelize = new Sequelize('sqlite::memory:', { logging: false })
+const sequelize = new Sequelize('database', null, null, {
+    dialect: 'sqlite',
+    storage: 'database.sqlite',
+    logging: false,
+})
 ```
 
 Then, to start the app locally:
@@ -33,11 +37,13 @@ Then, to start the app locally:
 npm start
 ```
 
-**NOTE:** With this option, all created data only persists as long as the app is not terminated
+With this option, a `database.sqlite` is created at projet root.
 
-### Option 2
+### Option 2 (PostgreSQL)
 
-To ensure all data created by application remains on disk, a [PostgreSQL](https://www.postgresql.org/) database is required. For this option, no modification of [config/database.js](config/database.js) is required.
+For practical usage, a [PostgreSQL](https://www.postgresql.org/) database is preferred over sqlite.
+For this option, no modification of [config/database.js](config/database.js) is needed.
+Dependencies for PostgreSQL support should have installed during the setup step.
 
 The credentials for database connection are to be stored in a `.env` file created at the root of the project in the following format:
 
@@ -53,4 +59,8 @@ Then, to start the app locally:
 npm start
 ```
 
-As this project uses Sequelize ORM, other databases supported by it can be used. This approach requires changing some dependencies and possible additonal configurations. For more information, visit [Sequelize ORM Documentation](https://sequelize.org/docs/v6/getting-started/).
+### Other options
+
+As this project uses Sequelize ORM, other databases supported by it can be used.
+This approach requires changing some dependencies and possible additonal configurations.
+For more information, visit [Sequelize ORM Documentation](https://sequelize.org/docs/v6/getting-started/).
