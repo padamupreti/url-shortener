@@ -135,7 +135,7 @@ section.interaction {
     padding: 0.8rem 0.5rem;
     background-color: #fff;
     box-shadow: 0.5rem -0.5rem var(--primary-color);
-    transition: all 1s;
+    transition: all 0.3s;
 }
 
 .pop {
