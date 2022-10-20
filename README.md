@@ -50,6 +50,8 @@ The credentials for database connection are to be stored in a `.env` file create
 ```
 DB_USERNAME=<postgres-db-username-here>
 DB_PASSWORD=<postgres-db-password-here>
+DB_HOST=<postgres-db-host-here>
+DB_PORT=<postgres-db-port-here>
 DB_NAME=<postgres-db-name-here>
 ```
 
